@@ -9,11 +9,19 @@ integer
 main
 while
 
+// separators
+(
+)
+{
+}
+;
+,
+
 // operators
-||
 !
+||
 &&
-!=
+!= //Does not undestand
 ==
 >=
 <=
@@ -23,7 +31,7 @@ while
 *
 -
 +
-:=
+:= //Does not understand
 
 // identifiers
 a
@@ -33,12 +41,12 @@ counter
 a3 
 do //  identifier
 void // identifier in kay
-true // identifier in kay
+true // identifier in kay //Thinks it is a literal rather than an identifier
 false // identifier in kay
 X3 
 
 // literals 
-True
+True //Thinks this is an identifier
 False
 0
 1

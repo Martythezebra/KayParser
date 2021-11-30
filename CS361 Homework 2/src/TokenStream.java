@@ -163,6 +163,7 @@ public class TokenStream {
 			// TODO TO BE COMPLETED
 
 			t.setValue("" + nextChar);
+			nextChar = readChar();
 
 			return t;
 		}
