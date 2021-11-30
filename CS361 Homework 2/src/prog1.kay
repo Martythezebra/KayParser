@@ -21,17 +21,25 @@ while
 !
 ||
 &&
+<<<<<<< HEAD
 != //Does not undestand
+=======
+!= //makes extra equal signs
+>>>>>>> 42e5a3de2f60c52dc2a449cd9eb38fe1d6a7c6cb
 ==
->=
-<=
+>= //makes extra equal signs
+<= // makes extra equal signs
 <
 >
 /
 *
 -
 +
+<<<<<<< HEAD
 := //Does not understand
+=======
+:= //this is read separately 
+>>>>>>> 42e5a3de2f60c52dc2a449cd9eb38fe1d6a7c6cb
 
 // identifiers
 a
@@ -41,6 +49,7 @@ counter
 a3 
 do //  identifier
 void // identifier in kay
+<<<<<<< HEAD
 true // identifier in kay //Thinks it is a literal rather than an identifier
 false // identifier in kay
 X3 
@@ -48,6 +57,15 @@ X3
 // literals 
 True //Thinks this is an identifier
 False
+=======
+true // identifier in kay     //read as literal-not as identifier
+false // identifier in kay    //read as literal-not as identifier
+X3 
+
+// literals 
+True  //read as identifier-not as literal
+False //read as identifier-not as literal
+>>>>>>> 42e5a3de2f60c52dc2a449cd9eb38fe1d6a7c6cb
 0
 1
 2
@@ -102,7 +120,7 @@ False
 @ // lexical error
 & // lexical error
 | // lexical error
-1!==3 // lexical error
+1!==3 // lexical error  //not built to handle this error and errors below
 
 1==2 // literal operator (==) literal
 1!2 // literal operator literal

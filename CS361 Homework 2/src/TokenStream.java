@@ -85,6 +85,7 @@ public class TokenStream {
 
 				if(nextChar == '='){
 					t.setValue(t.getValue() + nextChar);
+					nextChar = readChar();
 					return t;
 				}else{
 					t.setValue(t.getValue());
@@ -97,6 +98,7 @@ public class TokenStream {
 
 				if(nextChar == '='){
 					t.setValue(t.getValue() + nextChar);
+					nextChar = readChar();
 					return t;
 				}else{
 					t.setValue(t.getValue());
@@ -109,6 +111,7 @@ public class TokenStream {
 
 				if(nextChar == '='){
 					t.setValue(t.getValue() + nextChar);
+					nextChar = readChar();
 					return t;
 				}else{
 					t.setValue(t.getValue());
@@ -120,6 +123,19 @@ public class TokenStream {
 				nextChar = readChar();
 				if(nextChar == '='){
 					t.setValue(t.getValue() + nextChar);
+					nextChar = readChar();
+					return t;
+				}else{
+					t.setValue(t.getValue());
+					return t;
+				}
+				
+			case ':':
+				// !=
+				nextChar = readChar();
+				if(nextChar == '='){
+					t.setValue(t.getValue() + nextChar);
+					nextChar = readChar();
 					return t;
 				}else{
 					t.setValue(t.getValue());
@@ -161,7 +177,6 @@ public class TokenStream {
 		if (isSeparator(nextChar)) {
 			t.setType("Separator");
 			// TODO TO BE COMPLETED
-
 			t.setValue("" + nextChar);
 			nextChar = readChar();
 
@@ -179,7 +194,7 @@ public class TokenStream {
 			// now see if this is a keyword
 			if (isKeyword(t.getValue())) {
 				t.setType("Keyword");
-			} else if (t.getValue().equals("true") || t.getValue().equals("false")) {
+			} else if (t.getValue().equals("True") || t.getValue().equals("False")) {
 				t.setType("Literal");
 			}
 			if (isEndOfToken(nextChar)) { // If token is valid, returns.
@@ -267,7 +282,7 @@ public class TokenStream {
 	private boolean isOperator(char c) {
 		// Checks for characters that start operators
 		// TODO TO BE COMPLETED 
-		return (c == '+' || c == '-' || c== '*' || c == '/' || c == '<' ||  c == '>' || c == '!' || c == ':' || c == '=' || c == '&');
+		return (c == '+' || c == '-' || c== '*' || c == '/' || c == '<' ||  c == '>' || c == '!' || c == ':' || c == '=' || c == '&' || c == '|');
 	}
 
 	private boolean isLetter(char c) {
