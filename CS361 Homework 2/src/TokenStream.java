@@ -125,6 +125,17 @@ public class TokenStream {
 					t.setValue(t.getValue());
 					return t;
 				}
+				
+			case ':':
+				// !=
+				nextChar = readChar();
+				if(nextChar == '='){
+					t.setValue(t.getValue() + nextChar);
+					return t;
+				}else{
+					t.setValue(t.getValue());
+					return t;
+				}
 
 			case '|':
 				// Look for ||
@@ -161,7 +172,6 @@ public class TokenStream {
 		if (isSeparator(nextChar)) {
 			t.setType("Separator");
 			// TODO TO BE COMPLETED
-
 			t.setValue("" + nextChar);
 
 			return t;
@@ -266,7 +276,7 @@ public class TokenStream {
 	private boolean isOperator(char c) {
 		// Checks for characters that start operators
 		// TODO TO BE COMPLETED 
-		return (c == '+' || c == '-' || c== '*' || c == '/' || c == '<' ||  c == '>' || c == '!' || c == ':' || c == '=' || c == '&');
+		return (c == '+' || c == '-' || c== '*' || c == '/' || c == '<' ||  c == '>' || c == '!' || c == ':' || c == '=' || c == '&' || c == '|');
 	}
 
 	private boolean isLetter(char c) {
