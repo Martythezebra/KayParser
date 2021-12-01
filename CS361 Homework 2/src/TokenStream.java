@@ -115,6 +115,7 @@ public class TokenStream {
 					return t;
 				}else{
 					t.setValue(t.getValue());
+					t.setType("Other");
 					return t;
 				}
 
@@ -131,7 +132,7 @@ public class TokenStream {
 				}
 				
 			case ':':
-				// !=
+				// :=
 				nextChar = readChar();
 				if(nextChar == '='){
 					t.setValue(t.getValue() + nextChar);
@@ -139,6 +140,7 @@ public class TokenStream {
 					return t;
 				}else{
 					t.setValue(t.getValue());
+					t.setType("Other");
 					return t;
 				}
 
