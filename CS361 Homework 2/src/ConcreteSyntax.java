@@ -44,7 +44,7 @@ public class ConcreteSyntax {
 	// Implementation of the Recursive Descent Parser
 
 	public Program program() {
-		// TODO TO BE COMPLETED 
+		// TODO TO BE COMPLETED
 		// Program --> main '{' Declarations Statements '}'
 		String[] header = {"main", "{"};
 		Program p = new Program();
@@ -63,7 +63,7 @@ public class ConcreteSyntax {
 		// TODO TO BE COMPLETED 
 		// Declarations --> { Declaration }*
 		Declarations ds = new Declarations();
-		while (token.getValue().equals("int")
+		while (token.getValue().equals("integer")
 				|| token.getValue().equals("bool")) {
 			declaration(ds);
 		}
