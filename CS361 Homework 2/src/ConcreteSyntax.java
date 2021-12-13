@@ -46,11 +46,16 @@ public class ConcreteSyntax {
 	public Program program() {
 		// TODO TO BE COMPLETED 
 		// Program --> main '{' Declarations Statements '}'
-		String[] header = { };
+		String[] header = {"main", "{"};
 		Program p = new Program();
-		for (int i = 0; i < header.length; i++)
+		for (int i = 0; i < header.length; i++){
 			// bypass " main { "
 			match(header[i]);
+		}
+		p.decpart = this.declarations();
+		p.body = this.statements();
+
+		match("}");
 		return p;
 	}
 
