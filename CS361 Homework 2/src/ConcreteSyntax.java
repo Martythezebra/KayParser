@@ -154,8 +154,10 @@ public class ConcreteSyntax {
 		Assignment a = new Assignment();
 		if (token.getType().equals("Identifier")) {
 			// TODO TO BE COMPLETED
+			token = input.nextToken();
 			match(":=");
 			if(token.getType().equals("Expression")) {
+				token = input.nextToken();
 				match(";");
 			}
 		} else
