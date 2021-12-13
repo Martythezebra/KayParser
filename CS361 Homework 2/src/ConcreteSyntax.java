@@ -63,7 +63,7 @@ public class ConcreteSyntax {
 		// TODO TO BE COMPLETED 
 		// Declarations --> { Declaration }*
 		Declarations ds = new Declarations();
-		while (token.getValue().equals("int")
+		while (token.getValue().equals("integer")
 				|| token.getValue().equals("bool")) {
 			declaration(ds);
 		}
@@ -154,8 +154,10 @@ public class ConcreteSyntax {
 		Assignment a = new Assignment();
 		if (token.getType().equals("Identifier")) {
 			// TODO TO BE COMPLETED
+			token = input.nextToken();
 			match(":=");
 			if(token.getType().equals("Expression")) {
+				token = input.nextToken();
 				match(";");
 			}
 		} else
