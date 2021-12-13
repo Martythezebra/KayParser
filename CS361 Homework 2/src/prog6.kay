@@ -1,0 +1,7 @@
+//Syntactical error: missing ;
+main {
+  integer number, sqnumber
+  number := 8;
+  sqnumber := number * number; 
+  result := sqnumber; 
+}

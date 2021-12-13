@@ -1,0 +1,7 @@
+//Syntactical error: declarations and statements;
+main {
+  integer number;
+  number := 8;
+  integer number1; 
+  number1 := 8; 
+}

@@ -1,6 +1,15 @@
 main {
-    bool b;
-    if(3 != 18){
-        b := False;
-    }
+// compute fib 8 
+   integer n, fib0, fib1;
+   integer temp, result;
+   n := 8;
+   fib0 := 0;
+   fib1 := 1;
+   while (n > 0) {
+      temp := fib0;
+      fib0 := fib1;
+      fib1 := fib0 + temp;
+      n := n - 1;
+   }
+   result := fib0;
 }

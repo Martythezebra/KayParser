@@ -1,0 +1,4 @@
+//Syntactical error: missing ;
+main {
+    integer n
+}

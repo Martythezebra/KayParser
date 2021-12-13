@@ -1,0 +1,7 @@
+//No lexical or syntactic errors - Computes 8 * 8 ;
+main {
+  integer number, sqnumber;
+  number := 8;
+  sqnumber := number * number; 
+  result := sqnumber; 
+}
