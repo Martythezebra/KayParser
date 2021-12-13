@@ -209,7 +209,6 @@ public class ConcreteSyntax {
 		while (token.getValue().equals("<") || token.getValue().equals("<=")
 				|| token.getValue().equals(">=")
 				|| token.getValue().equals("==")
-				|| token.getValue().equals("<>")
 				|| token.getValue().equals("!=")) {
 			b = new Binary();
 			// TODO TO BE COMPLETED
@@ -230,7 +229,7 @@ public class ConcreteSyntax {
 		while (token.getValue().equals("+") || token.getValue().equals("-")) {
 			// TODO TO BE COMPLETED
 			b = new Binary();
-			b.term1 = addition(); 
+			b.term1 = e; 
 			b.op = new Operator(token.getValue());
 			token = input.nextToken();
 			b.term2 = term();
@@ -321,8 +320,10 @@ public class ConcreteSyntax {
 		Loop l = new Loop();
 		// TODO TO BE COMPLETED
 		if(token.getValue().equals("while")) {
+			token = input.nextToken();
 			match("(");
 			l.test = expression();
+			//token = input.nextToken();
 			match(")");
 			l.body = statement();
 		}

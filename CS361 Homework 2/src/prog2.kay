@@ -18,6 +18,7 @@ main {
     bool3ean := False; //Properly assign bool
     bool3ean := 1230; //Assign integer to bool
 
+//Binary and Unary conditionals test
     if(3 != 18){
         b := False;
     }
@@ -25,6 +26,18 @@ main {
     if(!b){
         bool3ean := True;
     }
+
+//While loop test
+
+while (x <= 5){
+     y:=5;
+}
+
+while (x <= 5) {
+	if(i > 6){
+		y:=10;
+	}
+}
 
 
 }
