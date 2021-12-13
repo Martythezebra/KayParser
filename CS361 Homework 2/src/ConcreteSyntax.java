@@ -213,8 +213,8 @@ public class ConcreteSyntax {
 				|| token.getValue().equals("!=")) {
 			b = new Binary();
 			// TODO TO BE COMPLETED
-			b.term1 = relation(); 
-			b.op = b.op = new Operator(token.getValue());
+			b.term1 = e; 
+			b.op = new Operator(token.getValue());
 			token = input.nextToken();
 			b.term2 = addition();
 			e = b;
@@ -306,10 +306,8 @@ public class ConcreteSyntax {
 			token = input.nextToken();
 			match("(");
 			c.test = expression();
-			token = input.nextToken();
 			match(")");
 			c.thenbranch = statement();
-			token = input.nextToken();
 			if(token.getValue().equals("else")) {
 				token = input.nextToken();
 				c.elsebranch = statement();
