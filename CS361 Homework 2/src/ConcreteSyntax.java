@@ -154,12 +154,15 @@ public class ConcreteSyntax {
 		Assignment a = new Assignment();
 		if (token.getType().equals("Identifier")) {
 			// TODO TO BE COMPLETED
+			Variable v = new Variable();
+			v.id = token.getValue();
+			a.target = v;
 			token = input.nextToken();
 			match(":=");
-			if(token.getType().equals("Expression")) {
-				token = input.nextToken();
-				match(";");
-			}
+			
+			a.source = expression();
+			match(";");
+			
 		} else
 			throw new RuntimeException(SyntaxError("Identifier"));
 		return a;
