@@ -126,8 +126,9 @@ public class ConcreteSyntax {
 			token = input.nextToken();
 			s = statements();
 			match("}");
-		} else if (token.getValue().equals("if")) // IfStatement
-			s = ifStatement();
+		} else if (token.getValue().equals("if")) {
+			s = ifStatement(); // IfStatement
+		}
 		else if (token.getValue().equals("while")) {
 			// WhileStatement
 			// TODO TO BE COMPLETED
@@ -207,6 +208,7 @@ public class ConcreteSyntax {
 		e = addition();
 		// TODO TO BE COMPLETED
 		while (token.getValue().equals("<") || token.getValue().equals("<=")
+				|| token.getValue().equals(">")
 				|| token.getValue().equals(">=")
 				|| token.getValue().equals("==")
 				|| token.getValue().equals("!=")) {
@@ -308,7 +310,6 @@ public class ConcreteSyntax {
 			match(")");
 			c.thenbranch = statement();
 			if(token.getValue().equals("else")) {
-				token = input.nextToken();
 				c.elsebranch = statement();
 			}
 		}
@@ -323,7 +324,6 @@ public class ConcreteSyntax {
 			token = input.nextToken();
 			match("(");
 			l.test = expression();
-			//token = input.nextToken();
 			match(")");
 			l.body = statement();
 		}
