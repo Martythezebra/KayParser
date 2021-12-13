@@ -209,7 +209,8 @@ public class ConcreteSyntax {
 		while (token.getValue().equals("<") || token.getValue().equals("<=")
 				|| token.getValue().equals(">=")
 				|| token.getValue().equals("==")
-				|| token.getValue().equals("<>")) {
+				|| token.getValue().equals("<>")
+				|| token.getValue().equals("!=")) {
 			b = new Binary();
 			// TODO TO BE COMPLETED
 			b.term1 = relation(); 
@@ -302,6 +303,7 @@ public class ConcreteSyntax {
 		Conditional c = new Conditional();
 		// TODO TO BE COMPLETED
 		if(token.getValue().equals("if")) {
+			token = input.nextToken();
 			match("(");
 			c.test = expression();
 			token = input.nextToken();

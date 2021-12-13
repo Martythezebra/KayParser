@@ -1,0 +1,6 @@
+main {
+    bool b;
+    if(3 != 18){
+        b := False;
+    }
+}

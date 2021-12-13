@@ -1,0 +1,30 @@
+main {
+    //comment before declarations
+    //multiple comments in a row
+    integer a2x;
+    bool b, bool3an;
+    integer i, j; //multiple declarations on one line
+    //End of declarations
+
+    //Beginning of statements
+    
+    ;//Blank line
+    {a2x := 89;}//Block, Assignment
+
+    {{{a2x := 23;};}} //Nested Blocks with a Skip
+
+    a2x := True; //TODO: assign bool to integer
+    //Are we supposed to account for errors like this as part of the scope of the assignment?
+    bool3ean := False; //Properly assign bool
+    bool3ean := 1230; //Assign integer to bool
+
+    if(3 != 18){
+        b := False;
+    }
+
+    if(!b){
+        bool3ean := True;
+    }
+
+
+}
