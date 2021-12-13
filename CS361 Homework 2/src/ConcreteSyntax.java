@@ -159,7 +159,6 @@ public class ConcreteSyntax {
 			a.target = v;
 			token = input.nextToken();
 			match(":=");
-			
 			a.source = expression();
 			match(";");
 			
@@ -192,6 +191,10 @@ public class ConcreteSyntax {
 		while (token.getValue().equals("&&")) {
 			b = new Binary();
 			// TODO TO BE COMPLETED
+			b.term1 = e;
+			b.op = b.op = new Operator(token.getValue());
+			token = input.nextToken();
+			b.term2 = relation();
 			e = b;
 		}
 		return e;
@@ -209,6 +212,10 @@ public class ConcreteSyntax {
 				|| token.getValue().equals("<>")) {
 			b = new Binary();
 			// TODO TO BE COMPLETED
+			b.term1 = relation(); 
+			b.op = b.op = new Operator(token.getValue());
+			token = input.nextToken();
+			b.term2 = addition();
 			e = b;
 		}
 		return e;
@@ -221,6 +228,12 @@ public class ConcreteSyntax {
 		e = term();
 		while (token.getValue().equals("+") || token.getValue().equals("-")) {
 			// TODO TO BE COMPLETED
+			b = new Binary();
+			b.term1 = addition(); 
+			b.op = new Operator(token.getValue());
+			token = input.nextToken();
+			b.term2 = term();
+			e = b;
 		}
 		return e;
 	}
@@ -233,6 +246,10 @@ public class ConcreteSyntax {
 		while (token.getValue().equals("*") || token.getValue().equals("/")) {
 			b = new Binary();
 			// TODO TO BE COMPLETED
+			b.term1 = e; 
+			b.op = new Operator(token.getValue());
+			token = input.nextToken();
+			b.term2 = term();
 			e = b;
 		}
 		return e;
@@ -284,6 +301,18 @@ public class ConcreteSyntax {
 		// IfStatement --> if ( Expression ) Statement { else Statement }opt
 		Conditional c = new Conditional();
 		// TODO TO BE COMPLETED
+		if(token.getValue().equals("if")) {
+			match("(");
+			c.test = expression();
+			token = input.nextToken();
+			match(")");
+			c.thenbranch = statement();
+			token = input.nextToken();
+			if(token.getValue().equals("else")) {
+				token = input.nextToken();
+				c.elsebranch = statement();
+			}
+		}
 		return c;
 	}
 
@@ -293,13 +322,9 @@ public class ConcreteSyntax {
 		// TODO TO BE COMPLETED
 		if(token.getValue().equals("while")) {
 			match("(");
-			if(token.getType().equals("Expression")) {
-				match(")");
-				if(token.getType().equals("Statement")) {
-					//confused about what to put here
-					
-				}
-			}
+			l.test = expression();
+			match(")");
+			l.body = statement();
 		}
 		return l;
 	}
